@@ -1,0 +1,18 @@
+#!/bin/bash
+#Runs a custom menu of all the sell scripts saved in $HOME/.dwm/custom_scripts
+
+SCRIPTS_PATH="$HOME/.dwm/custom_scripts/"
+mkdir -p "$SCRIPTS_PATH"
+cd "$SCRIPTS_PATH"
+
+if [ `find ./ -type f | wc -l` == "0" ]; then #empty scripts folder
+	exit 0;
+fi
+
+script=`find ./ -type f | cut -d '/' -f 2- | sort | dmenu $@`
+
+if [ "x$script" == "x" ]; then
+  exit 1
+fi
+./"$script"
+exit $?

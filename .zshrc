@@ -1,5 +1,3 @@
-export PATH=$PATH:$HOME/.local/bin:/var/lib/flatpak/exports/bin
-
 autoload -U compinit promptinit
 compinit
 promptinit; prompt gentoo
